@@ -1,4 +1,17 @@
-﻿# A Custom Skin Mod for Chill with You: Lo-Fi Story
+修改内容：
+Cavi.ChillWithAnyone.dll 中的 PrepareMateria() 方法，原来是在运行时强行把所有材质的 Shader 替换成 Universal Render Pipeline/Lit，
+现在改为直接返回 AssetBundle 中的原始材质，不做任何 Shader 替换。
+
+之前: Shader.Find("Universal Render Pipeline/Lit") → 强制替换 → 所有材质属性丢失
+现在: return renderer.materials // 保持 AssetBundle 构建时的原始 Shader 和属性
+ 
+ 
+ 以下为原本的readme
+ 
+ 
+ 
+ 
+ # A Custom Skin Mod for Chill with You: Lo-Fi Story
 
 这是一个为 Chill with You: Lo-Fi Story 制作的角色外观替换 Mod，支持自定义 3D 模型。
 
